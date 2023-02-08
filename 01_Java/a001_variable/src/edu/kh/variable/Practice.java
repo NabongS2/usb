@@ -56,6 +56,9 @@ public class Practice {
 		System.out.println((char)(iNum1+ch)); //K abcdefghijk 10칸 가야함
 		
 		
+		// 개인공부
+		
+		
 		
 		
 		
