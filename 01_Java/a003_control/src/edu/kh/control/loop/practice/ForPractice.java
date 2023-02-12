@@ -197,6 +197,29 @@ public class ForPractice {
 		System.out.print("정수 입력 : ");
 		int num = sc.nextInt();
 		
+		for(int i = 1; i<=num; i++) {
+			if(i==1) {
+				for(int x=1; x<=num; x++) {
+					System.out.print("*");
+				}
+				System.out.println();
+			} else if(i>1 && i<num) {
+				System.out.print("*");
+				for(int z=3; z<=num; z++) {
+					System.out.print(" ");
+				}
+				System.out.print("*");
+				System.out.println();
+			} else if(i==num) {
+				for(int x=1; x<=num; x++) {
+					System.out.print("*");
+				}
+				System.out.println();
+			}
+			
+			
+			
+		}
 		
 		
 		
