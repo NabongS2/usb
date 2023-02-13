@@ -176,7 +176,7 @@ public class ForPractice {
 		System.out.print("정수 입력 : ");
 		int num = sc.nextInt();
 		
-		for(int i=1; i<=num; i++) {
+		/* 	for(int i=1; i<=num; i++) {
 			for(int x=num; x>=i+1; x--) {
 				System.out.print(" ");
 			}
@@ -187,7 +187,19 @@ public class ForPractice {
 				System.out.print("*");
 			}
 			System.out.println();
-		}
+		} */
+		
+		// 선생님 풀이1
+		for(int i=1; i<=num; i++) {
+			for(int x=num-i; x>=1; x--) {
+				System.out.print(" ");
+			} for(int x=1; x<=i*2-1; x++ ) {
+				System.out.print("*");
+			}
+			
+			System.out.println();
+		} 
+		
 		
 		
 	}
@@ -197,7 +209,7 @@ public class ForPractice {
 		System.out.print("정수 입력 : ");
 		int num = sc.nextInt();
 		
-		for(int i = 1; i<=num; i++) {
+		 /* for(int i = 1; i<=num; i++) {
 			if(i==1) {
 				for(int x=1; x<=num; x++) {
 					System.out.print("*");
@@ -215,12 +227,23 @@ public class ForPractice {
 					System.out.print("*");
 				}
 				System.out.println();
+				
+			} 
 			}
-			
-			
-			
-		}
+			*/
 		
+		for(int i = 1; i<=num; i++) {
+			
+			for(int x=1; x<=num; x++) {
+				if(x==1 || i==1 || x==num || i==num) {
+				 System.out.print("*");
+				} else {
+					System.out.print(" ");
+				}
+			}
+			System.out.println();
+		
+		}
 		
 		
 	}
