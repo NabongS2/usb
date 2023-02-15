@@ -81,16 +81,16 @@ public class ArrayPractice {
 		int search=sc.nextInt();
 		
 		int index=0;
-		boolean flag=true;
+		boolean flag=false;
 		for(int i=0; i<arr.length; i++) {
 			if(arr[i]==search) {
 				index=i;
-				flag=false;
+				flag=true;
 				break;
 			}
 		}
 		
-		if(flag) {
+		if(!flag) {
 			System.out.println("일치하는 값이 존재하지 않습니다.");
 		} else {
 			System.out.println("인덱스 : "+index);
@@ -100,47 +100,76 @@ public class ArrayPractice {
 	
 	
 	public void ex5() {
-		Scanner sc = new Scanner(System.in);
-		
-		System.out.print("문자열 : ");
-		String word=sc.next();
-		System.out.print("문자 : ");
-		String letter = sc.next();
-		
-		char[] arr= new char[word.length()];
-		
-		int resultNum=0;
-		for(int i=0; i<word.length(); i++) {
-			arr[i] = word.charAt(i);
-			
-			if(letter==arr[i]) {
-				
-				resultNum++;
-			}
-			
-		}
-		
-		
+//		Scanner sc = new Scanner(System.in);
+//		
+//		System.out.print("문자열 : ");
+//		String word=sc.next();
+//		System.out.print("문자 : ");
+//		String search = sc.next();
+//		
+//		char[] arr= new char[word.length()];
+//		
+//		for(int i=0; i<word.length(); i++) {
+//			arr[i] = word.charAt(i);
+//			
+//			if(word.charAt(i)==) {
+//			}
+//		}
+//		System.out.printf("%s에 %s가 존재하는 위치(인덱스) : ",word,search);
+//		System.out.print(index);
 		
 	}
+
 	public void ex6() {
 		Scanner sc = new Scanner(System.in);
 		
+		System.out.print("정수 : ");
+		int arrNum=sc.nextInt();
+		
+		int[] arr = new int[arrNum];
+		
+		int sum=0;
+		for(int i=0; i<arr.length; i++) {
+			System.out.print("배열 "+i+"번째 인덱스에 넣을 값 : ");
+			arr[i]=sc.nextInt();
+			
+			sum+=arr[i];
+		}
+		for(int i=0; i<arr.length; i++) {
+			System.out.print(arr[i]+" ");
+		}
+		
+		System.out.println("\n총 합 : "+sum);
 		
 	}
+	
 	public void ex7() {
-		Scanner sc = new Scanner(System.in);
-		
-		
+//		Scanner sc = new Scanner(System.in);
+//		
+//		System.out.print("주민등록번호(-포함) : ");
+//		String pNo = sc.next();
+//		
+//		
+//		char[] arr=new char[14];
+//		
+//		
 	}
 	public void ex8() {
 		Scanner sc = new Scanner(System.in);
 		
+		System.out.print();
 		
 	}
 	public void ex9() {
 		Scanner sc = new Scanner(System.in);
 		
+		int[] arr=new int[10];
+
+		System.out.print("발생한 난수 : ");
+		for(int i=0; i<arr.length; i++) {
+			arr[i]=(int)(Math.random()*arr.length+1);
+			System.out.print(arr[i]+" ");
+		}
 		
 	}
 	public void ex10() {

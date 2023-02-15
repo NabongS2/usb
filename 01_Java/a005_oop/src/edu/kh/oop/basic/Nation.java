@@ -1,4 +1,4 @@
-package ady.kh.opp.basic;
+package edu.kh.oop.basic;
 
 // 현실에서 객체 : 속성(data)과 기능(method)을 가지고 있는 식별 가능 한 것
 
@@ -24,6 +24,7 @@ public class Nation {
 	String address; // 주소
 	String phone; // 전화번호
 	int age; // 나이
+	// 멤버변수랑 클래스 변수를 묶어서 필드라고 부른다.
 	
 	/* 기능(== method)*/
 	public void speakKorean() {

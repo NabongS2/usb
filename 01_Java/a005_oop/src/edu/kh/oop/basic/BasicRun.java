@@ -1,4 +1,4 @@
-package ady.kh.opp.basic;
+package edu.kh.oop.basic;
 
 public class BasicRun {
 
