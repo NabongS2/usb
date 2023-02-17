@@ -1,4 +1,4 @@
-package edu.kr.control.condition.ex;
+package edu.kh.control.condition.ex;
 
 public class ConditionRun {
 	

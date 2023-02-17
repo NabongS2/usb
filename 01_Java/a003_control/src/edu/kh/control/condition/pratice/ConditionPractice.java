@@ -1,4 +1,4 @@
-package edu.kr.control.condition.pratice;
+package edu.kh.control.condition.pratice;
 
 import java.util.Scanner;
 

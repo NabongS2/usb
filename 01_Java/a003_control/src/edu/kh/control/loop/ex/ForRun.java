@@ -1,4 +1,4 @@
-package edu.kr.control.loop.ex;
+package edu.kh.control.loop.ex;
 
 public class ForRun {
 
