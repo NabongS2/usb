@@ -274,52 +274,77 @@ public class ArrayPractice {
 	}
 	
 	public void ex13() {
+		
+		// 못품!!
 		System.out.print("문자열 : ");
 		String word=sc.next();
 		
 		char[] arr= new char[word.length()];
 		
-		for(int i=0; i<word.length(); i++) {
-			arr[i] = word.charAt(i);
+		int count=0;
+		System.out.print("문자열에 있는 문자 : ");
+		for(int i=0; i<arr.length; i++) {
+			arr[i]=word.charAt(i);
+			
+			for(int x=0; x<i; x++) {
+				if(arr[i]==arr[x]) {
+					// 중복일 때 배열에서 빼는 법...
+					count++;
+				}
+			}
+			
+			if(i==arr.length-count) {
+				System.out.print(arr[i]+" ");
+			} else {
+				System.out.print(arr[i]+", ");
+			}
 		}
+		System.out.println("문자 개수 : "+(word.length()-count));
 		
 		
 		
-		
-		
-
 	}
 	
 	public void ex14() {
+		// 못품!!
+		System.out.print("배열의 크기를 입력하세요 : ");
+		int num=sc.nextInt();
 		
-//		int count=0;
-//		String arr[]= new String[num];
-//		
-//		System.out.print("배열의 크기를 입력하세요 : ");
-//		int num=sc.nextInt();
-//				
-//		while(true) {
-//			for(int i=0; i<num; i++) {
-//				count++;
-//				System.out.print(count+"번째 문자열 : ");
-//				arr[i]=sc.next();
-//			}
-//			
-//			System.out.print("더 값을 입력하시겠습니까?(Y/N) : ");
-//			String cont=sc.next();
-//			
-//			if(cont.charAt(0)=='y') {
-//				
-//				System.out.print("더 입력하고 싶은 개수 : ");
-//
-//
-//			} else {
-//				for(int x=0; x<count; x++) {
-//					System.out.println(arr[x]+", ");
-//				}
-//				break;
-//			}
-//		}
+		int count=0;
+		String arr[]= new String[num];
+		String newArr[] = null;
+				
+		for(int i=0; i<num; i++) {
+			count++;
+			System.out.print(count+"번째 문자열 : ");
+			arr[i]=sc.next();
+		}
+		
+		while(true) {
+			
+			System.out.print("더 값을 입력하시겠습니까?(Y/N) : ");
+			String cont=sc.next();
+			
+			if(cont.charAt(0)=='y') {
+				System.out.print("더 입력하고 싶은 개수 : ");
+				int moreNum = sc.nextInt();
+				
+				for(int i=0; i<moreNum; i++) {
+					count++;
+					System.out.print(count+"번째 문자열 : ");
+					newArr[num+i]=sc.next();
+				}
+
+				newArr = new String[num+moreNum];
+				System.arraycopy(arr, 0, newArr, 0, arr.length);
+				
+			} else {
+					break;
+				}
+			}
+		
+		System.out.println(Arrays.toString(newArr));
+		
 		
 		
 	}
@@ -372,18 +397,27 @@ public class ArrayPractice {
 	}
 	
 	public void ex18() {
-		
+		// 못품
 //		int[][] arr= new int[4][4];
 //		
-//		
+//		int sum=0;
 //		for(int i=0; i<arr.length; i++) {
 //			if(i<arr.length-1) {
-//				for(int x=0; x<arr.length-1; x++) {
+//				for(int x=0; x<arr[i].length-1; x++) {
 //					arr[i][x]=(int)(Math.random()*10+1);
+//					sum+=arr[i][x];
 //				}
-//			}
+//				
+//			}			
+//		}
+//		
+//		arr[4][4]=sum;
+//		
+//		for(int i=0; i<arr.length; i++) {
 //			
 //		}
+		
+		
 		
 		
 	}
@@ -546,13 +580,15 @@ public class ArrayPractice {
 	}
 	
 	public void ex23() {
-		
+		// 못품!!
 		String[][] arr=new String[6][6];
+
+		
 		
 		
 	}
 	public void ex24() {
-		
+		// 못품!!
 		
 	}
 }
