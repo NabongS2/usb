@@ -275,77 +275,87 @@ public class ArrayPractice {
 	
 	public void ex13() {
 		
-		// 못품!!
 		System.out.print("문자열 : ");
 		String word=sc.next();
 		
-		char[] arr= new char[word.length()];
-		
-		int count=0;
-		System.out.print("문자열에 있는 문자 : ");
-		for(int i=0; i<arr.length; i++) {
-			arr[i]=word.charAt(i);
-			
-			for(int x=0; x<i; x++) {
-				if(arr[i]==arr[x]) {
-					// 중복일 때 배열에서 빼는 법...
-					count++;
-				}
-			}
-			
-			if(i==arr.length-count) {
-				System.out.print(arr[i]+" ");
-			} else {
-				System.out.print(arr[i]+", ");
-			}
-		}
-		System.out.println("문자 개수 : "+(word.length()-count));
-		
+//		char[] arr= new char[word.length()];
+//		char[] newArr;
+//		
+//		int count=0;
+//		System.out.print("문자열에 있는 문자 : ");
+//		for(int i=0; i<arr.length; i++) {
+//			arr[i]=word.charAt(i);
+//			
+//			for(int x=0; x<i; x++) {
+//				if(arr[i]==arr[x]) {
+//					count++;
+//					newArr = new char[arr.length-count];
+//				} else {
+//					newArr[i]=arr[i];
+//					if(i==newArr.length) {
+//						System.out.print(newArr[i]+" ");
+//					} else {
+//						System.out.print(newArr[i]+", ");
+//						System.out.println("문자 개수 : "+newArr.length);
+//				}
+//			}
+//			
+//		}
+//		
+//	}
 		
 		
 	}
 	
 	public void ex14() {
-		// 못품!!
+		// 1. 첫 배열 크기 지정
 		System.out.print("배열의 크기를 입력하세요 : ");
-		int num=sc.nextInt();
+		int size = sc.nextInt(); // 입력 버퍼에 개행문자(엔터)가 남음
 		
-		int count=0;
-		String arr[]= new String[num];
-		String newArr[] = null;
-				
-		for(int i=0; i<num; i++) {
-			count++;
-			System.out.print(count+"번째 문자열 : ");
-			arr[i]=sc.next();
+		sc.nextLine(); // 입력버퍼에 남은 개행문자(엔터) 제거
+		
+		// 2. 첫 배열 생성
+		String[] books = new String[size];
+		
+		// 3. 첫 배열에 저장할 문자열 입력 받기
+		for(int i=0; i<books.length; i++) {
+			System.out.print((i+1)+"번째 문자열 : ");
+			books[i] = sc.nextLine(); // 입력 버퍼에서 다음 엔터까지 읽어옴
 		}
 		
+		// 4. n이 입력될 때 까지 무한 반복 -> n 입력 시 break
 		while(true) {
-			
-			System.out.print("더 값을 입력하시겠습니까?(Y/N) : ");
-			String cont=sc.next();
-			
-			if(cont.charAt(0)=='y') {
-				System.out.print("더 입력하고 싶은 개수 : ");
-				int moreNum = sc.nextInt();
-				
-				for(int i=0; i<moreNum; i++) {
-					count++;
-					System.out.print(count+"번째 문자열 : ");
-					newArr[num+i]=sc.next();
-				}
 
-				newArr = new String[num+moreNum];
-				System.arraycopy(arr, 0, newArr, 0, arr.length);
-				
-			} else {
-					break;
-				}
+			System.out.print("더 값을 입력하시겠습니까?(Y/N) : ");
+			char ch = sc.nextLine().charAt(0);
+			
+			if(ch=='N') {
+				break;
 			}
+			
+			// 5. 더 입력 받을 개수 입력
+			System.out.print("더 입력 하고 싶은 개수 : ");
+			int addSize = sc.nextInt();
+			sc.nextLine(); // 입력 버퍼 개행문자 제거
+			
+			// 6. 기존 배열 보다 늘어난 개수만큼 큰 새 배열
+			String newBooks[] = new String[books.length+addSize];
+			
+			// 7. 깊은 복사를 통해 기존 배열 내용을 새 배열로 복사
+			System.arraycopy(books, 0, newBooks, 0, books.length);
+			
+			// 8. 새 배열의 빈칸 부터 새로운 입력을 받아서 저장
+			for(int i=books.length; i<newBooks.length; i++) {
+				System.out.print((i+1)+"번째 문자열 : ");
+				newBooks[i]=sc.nextLine();
+			}
+			
+			// 9. 기존 참조 배열 books에 newBooks의 주소를 얕은 복사
+			books = newBooks;
+		} // while 종료
 		
-		System.out.println(Arrays.toString(newArr));
-		
-		
+		// 10.  배열에 저장된 모든 값 출력
+		System.out.println(Arrays.toString(books));
 		
 	}
 	
