@@ -1,4 +1,4 @@
-vapackage edu.kh.api.view;
+package edu.kh.api.view;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

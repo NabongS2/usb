@@ -9,7 +9,7 @@ public class SetRun {
 		SetService service = new SetService();
 		
 //		service.ex1();
-//		service.ex2();
-		service.createLotto();
+		service.ex2();
+//		service.createLotto();
 	}
 }

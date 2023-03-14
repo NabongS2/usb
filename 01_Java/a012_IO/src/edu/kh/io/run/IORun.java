@@ -12,9 +12,9 @@ public class IORun {
 //		service.charInput();
 //		service.fileCopy();
 //		service.objectOutput();
-//		service.objectInput();
+		service.objectInput();
 //		service.listOutput();
-		service.listInput();
+//		service.listInput();
 		
 		
 	}
