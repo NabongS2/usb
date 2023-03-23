@@ -23,6 +23,21 @@ public class Emp {
 	
 	public Emp() { }
 
+	
+	
+	public Emp(int empId, String empName,  String departmentTitle,
+			String jobName, int salary, String phone, String email) {
+		this.empId = empId;
+		this.empName = empName;
+		this.departmentTitle = departmentTitle;
+		this.jobName = jobName;
+		this.salary = salary;
+		this.phone = phone;
+		this.email = email;
+	}
+
+
+
 	public int getEmpId() {
 		return empId;
 	}
