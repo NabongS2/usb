@@ -34,8 +34,6 @@ public class MainDAO {
 			// -> prop.getProperty("key") 호출
 			//	--> value (SQL) 반환
 			
-			
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
