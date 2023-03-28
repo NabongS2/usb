@@ -132,11 +132,11 @@ public class MemberDAO {
 		return result;
 	}
 
-	/**
+	/** 회원 탈퇴 SQL 수행
 	 * @param conn
 	 * @param memberPw
 	 * @param memberNO
-	 * @return
+	 * @return result
 	 * @throws Exception
 	 */
 	public int unRegisterMember(Connection conn, String memberPw, int memberNO) throws Exception {

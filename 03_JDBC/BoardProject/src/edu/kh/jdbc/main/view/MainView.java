@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import edu.kh.jdbc.board.view.BoradView;
 import edu.kh.jdbc.common.Session;
 import edu.kh.jdbc.main.model.sercive.MainService;
 import edu.kh.jdbc.member.model.dto.Member;
@@ -16,6 +17,9 @@ public class MainView {
 
 	// 회원 기능 화면 객체 생성
 	private MemberView memberView = new MemberView();
+
+	// 게시판 기능 화면 객체 생성
+	private BoradView boardView = new BoradView();
 	
 
 	/**
@@ -62,7 +66,7 @@ public class MainView {
 
 					switch (input) {
 					case 1: memberView.memberMenu(); break; 
-					case 2: break; 
+					case 2: boardView.boardMenu(); break; 
 					case 3: 
 						System.out.println("\n=== 로그아웃 되었습니다. ===\n");
 

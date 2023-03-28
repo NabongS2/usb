@@ -97,7 +97,7 @@ public class MemberService {
 		return code.toString();
 	}
 
-	/**
+	/** 회원 탈퇴 서비스
 	 * @param memberPw
 	 * @param memberNO
 	 * @return
