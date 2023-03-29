@@ -147,7 +147,7 @@ public class StudentService {
 		// 2) index 번째 요소가 null인 경우
 		
 						// 1)								// 2)			
-		if((index>=0 && index<studentArr.length) || studentArr[index]==null) return false;
+		if(!(index>=0 && index<studentArr.length) || studentArr[index]==null) return false;
 			
 		// 문제가 없을 경우 index 번째 학생의 점수를 수정 후 true 반환
 		studentArr[index].setKor(kor);

@@ -3,14 +3,7 @@ package edu.kh.polymorphism.ex2.dto;
 // 계산기 인터페이스
 // -> 모든 계산기에 대한 공통 필드, 기능명을 제공하는 용도
 // -> 공통 규약(이름만) 설정
-/**
- * @author user1
- *
- */
-/**
- * @author user1
- *
- */
+
 /**
  * @author user1
  *

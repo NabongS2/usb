@@ -7,8 +7,8 @@ public class TestRun {
 	public static void main(String[] args) {
 		TestService service = new TestService();
 //		service.ex1();
-//		service.ex2();
-		service.ex3();
+		service.ex2();
+//		service.ex3();
 	}
 
 }

@@ -2,7 +2,7 @@ package edu.kh.polymorphism.ex2.dto;
 
 // 추상 클래스 (abstract class)
 // - 추상 메서드가 포함된 클래스
-// 단, 추상 메서드가 없어도 추상 클래스가 새성된다.
+// 단, 추상 메서드가 없어도 추상 클래스가 생성된다.
 public abstract class Animal { // The type Animal must be an abstract class to define abstract methods
 	// 추상화, 캡슐화
 	
