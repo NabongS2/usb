@@ -1,0 +1,72 @@
+/* 글꼴 관련 스타일 */
+body{
+    font-family: "맑은 고딕",돋움, 굴림;
+    font-size: 30px;
+}
+body>h3{font-style: italic;
+background-color: seagreen; text-align: center; padding: 10px;}
+.parent-div{font-size: 24px; font-weight: 600;}
+.child-div{font-size: 0.8em; font-weight: 300;}
+/* em 부모요소 기준 rem 문서시작 기준 */
+
+@font-face {
+    font-family: 'KCCChassam';
+    src: url(../font/KCCChassam/KCCChassam.woff) format('woff'),
+    url(../font/KCCChassam/KCC-Chassam.ttf) format('truetype');
+}
+.fontface{
+    font-family: 'KCCChassam';
+    font-size: 20px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,500&display=swap');
+.google{font-family: 'Playfair Display', serif;}
+
+.ex1{font-size: 20px;}
+.ex1>h1{font-family: 바탕;font-size: 3em;}
+.ex1 .accent{font-size: 150%; font-weight: 800;}
+.ex1 .italic{font-style: italic;}
+
+/* 텍스트 관련 스타일 */
+.color{font-size: 15px; font-weight: 900; background-color: rgb(0, 0, 0);}
+.color span:nth-child(1){color: red;}
+.color span:nth-child(2){color: orange;}
+.color span:nth-child(3){color: yellow;}
+.color span:nth-child(4){color: green;}
+
+.ex2 h1{color: #0000ff;}
+.ex2 p{color: green;}
+.ex2 .accent{color: hsl(0,100%,50%); font-weight: bold;}
+
+.opacity{width: 450px; height: 150px; background-color: yellowgreen;}
+.opacity h4:first-child{color: rgb(0, 0, 225); text-align: center;}
+.opacity h4:last-child{color: rgba(0, 0, 225,0.5); text-align: right;}
+
+.lineheight1{font-size: 12px; line-height: 0.7;}
+.lineheight2{font-size: 12px; line-height: 2.5; text-align: center;}
+.lineheight3{font-size: 12px; line-height: 100%; text-align: justify;}
+
+.centerAlign{height: 100px; line-height: 100px; text-align: center;
+background-color: salmon;}
+
+.shadow1{color: red; text-shadow: 1px 1px #000;}
+.shadow2{text-shadow: 5px 5px 3px #ffa500;}
+.shadow3{color: #fff; text-shadow: 7px -7px 20px #000;}
+
+.trans1{text-transform: capitalize;}
+.trans2{text-transform: uppercase;}
+.trans3{text-transform: lowercase;}
+
+.spacing1,.spacing2,.spacing3{font-size: 50px; font-weight: 900;}
+.spacing2{letter-spacing: 0.2em;}
+.spacing3{letter-spacing: 0.5em;}
+
+.ulimage{list-style-image: url(../img/dogfoot.png);}
+.ulimage li{margin-bottom: 10px; font-family: 'KCCChassam';}
+
+table.product{
+    caption-side: bottom; border: 1px solid #000;
+}
+table.product td, th{
+    padding: 10px; text-align: center;
+}

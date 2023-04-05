@@ -137,7 +137,7 @@ public class CommentView {
 				StringBuffer sb = new StringBuffer();
 
 				while(true) {
-					String str = sc.next();
+					String str = sc.nextLine();
 
 					if(str.equals("!wq")) break;
 
