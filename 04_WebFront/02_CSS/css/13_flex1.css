@@ -1,0 +1,59 @@
+.flex-container{
+    height: 700px; background-color: #ddd;
+
+    /* flex로 지정 */
+    display: flex;
+
+    /* 2. flex-direction : 중심축의 방향, 시작/끝 지정 */
+
+    flex-direction: row; /* 1~9 왼쪽 */
+    /* flex-direction: row-reverse; 9~1 오른쪽 */
+    /* flex-direction: column; 위에서 아래로 */
+    /* flex-direction: column-reverse; 아래에서 위로 */
+
+    /* 3. justify-content : 중심축 방향을 기준으로 item 정렬 */
+
+    /* flex-start : 중심축 시작 지점을 기준으로 정렬 */
+    justify-content: flex-start;
+
+    /* flex-end : 중심축 끝 지점을 기준으로 정렬 (순서가 뒤집히진 않음) */
+    justify-content: flex-end;
+    /* flex-direction: row-reverse; */
+    justify-content: center;
+    /* flex-direction: column; */
+    justify-content: space-around;
+    justify-content: space-evenly; /* 다 동일한 간격 */
+    justify-content: space-between; /* 다 동일한 간격 끝은 붙어있음 */
+
+    /* align-items : 교차축을 기준으로 item 정렬 */
+    align-items: flex-start;
+    align-items: flex-end;
+    align-items: center;
+
+    align-items: baseline;
+
+}
+
+/* baseline 확인하기 */
+.flex-container2 .item2{padding: 5px;}
+.flex-container2 .item3{padding: 10px;}
+.flex-container2 .item4{padding: 15px;}
+.flex-container2 .item5{padding: 20px;}
+
+
+/* 정가운데 배치하기 */
+.test{
+    width: 300px; height: 300px;
+    display: flex;
+    flex-direction: row; /* 기본값 */
+    justify-content: center; /* 중심축 가운데 */
+    align-items: center;
+}
+
+/* 연습 */
+.flex-container2{
+    height: 700px; background-color: #ddd;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: baseline;
+}

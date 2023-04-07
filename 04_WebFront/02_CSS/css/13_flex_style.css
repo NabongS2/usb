@@ -1,0 +1,35 @@
+/* flex 예제에서 공통적으로 사용할 스타일 지정 */
+div{
+    border: 1px solid #000;
+    box-sizing: border-box;
+    /* content + padding + border == width/height 
+        content 사이즈 변경
+    */
+}
+
+pre{
+    font-size: 1rem;
+    font-family: '고딕';
+}
+
+pre>b{
+    font-size: 1.5em;
+    color: red;
+}
+pre>i{
+    font-size: 1.5em;
+}
+
+.item{
+    width: 75px; height: 75px;
+}
+
+.item1{background-color: #04009A;}
+.item2{background-color: #77ACF1;}
+.item3{background-color: #3EDBF0;}
+.item4{background-color: #F0EBCC;}
+.item5{background-color: #FDFF00;}
+.item6{background-color: #9CFF2E;}
+.item7{background-color: #38E54D;}
+.item8{background-color: #2192FF;}
+.item9{background-color: #A460ED;}

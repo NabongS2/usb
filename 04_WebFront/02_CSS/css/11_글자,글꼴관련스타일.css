@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+@font-face {
+    font-family: 'EF_watermelonSalad';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-EF@1.0/EF_watermelonSalad.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'EF_jejudoldam';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-EF@1.0/EF_jejudoldam.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+/* color 속성 */
+#colorList>li{
+    font-size: 24px; font-weight: bold;
+}
+
+#colorList>li:nth-child(1){color: palevioletred;}
+#colorList>li:nth-child(2){color: rgb(150, 150, 0);}
+#colorList>li:nth-child(3){color: rgba(0, 150, 150, 0.7);}
+#colorList>li:nth-child(4){color: #fdf;}
+#colorList>li:nth-child(5){color: #5050ff;}
+#colorList>li:nth-child(6){color: hsl(219, 100%, 75%);}
+#colorList>li:nth-child(7){color: hsla(100, 100%, 50%, 0.5);}
+
+/* decorationList 속성 */
+#decorationList>li:nth-child(1){text-decoration: overline;}
+#decorationList>li:nth-child(2){text-decoration: line-through;}
+#decorationList>li:nth-child(3){text-decoration: underline;}
+#decorationList>li:nth-child(4)>a{text-decoration: none;}
+
+/* text-align */
+#alignTest>p:nth-child(1){text-align: left;}
+#alignTest>p:nth-child(2){text-align: right;}
+#alignTest>p:nth-child(3){text-align: center;}
+#alignTest>p:nth-child(4){text-align: justify;}
+
+/* line-height */
+#lineHeight{line-height: 30px;}
+
+/* letter-spacing */
+#letterSpacing{letter-spacing: -1px;}
+
+/* font-family */
+#fontFamily>li:nth-child(1){font-family: '궁서';}
+#fontFamily>li:nth-child(2){font-family: '궁서체';} /* 체가 칸들이 나눠져있음 예쁘게 꾸밀 수 있음 */
+
+#fontFamily>li:nth-child(3){font-family: 'Black Han Sans', sans-serif;}
+
+#fontFamily>li:nth-child(4){font-family: 'EF_watermelonSalad';}
+#fontFamily>li:nth-child(5){font-family: 'EF_jejudoldam';}
+#fontFamily>li:nth-child(6){font-family: 'Sunflower';}
+
+/* 다운 받은 폰트 적용 */
+@font-face {
+    font-family: 'Sunflower';
+    src: url(../css/font/Sunflower-Medium.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+
