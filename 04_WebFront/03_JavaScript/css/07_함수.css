@@ -1,0 +1,12 @@
+code{
+    color: red; font-size: 20px; font-weight: bold;
+}
+#btn1{
+    /* 
+        너비 50px 높이 50px 글자크기 30px 글자 두껍게 테구리 1px 검정 
+        글자는 정가운데 배치 마우스 올렸을 때 손가락 모양 블럭 처리(드래그) 불가
+    */
+    width: 50px; height: 50px; font-size: 30px; border: 1px solid #000; font-weight: bold;
+    text-align: center; cursor: pointer; user-select: none; display: flex;
+    justify-content: center; align-items: center;
+}

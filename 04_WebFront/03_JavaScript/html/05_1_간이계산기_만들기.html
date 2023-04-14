@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05_1_간이계산기_만들기</title>
+</head>
+<body>
+    두 수를 입력 받아 버튼에 작성된 연산을 수행하는 계산기 만들기
+    <!-- 
+        if, for, while, switch, break, continue
+    -->
+    <hr>
+    첫 번째 값 : <input type="text" id="num1"> <br>
+    두 번째 값 : <input type="text" id="num2"> <br>
+
+    <button onclick="plus()">+</button>
+    <button onclick="minus()">-</button>
+    <button onclick="multi()">*</button>
+    <button onclick="div()">/</button>
+    <button onclick="mod()">%</button>
+
+    <br><br>
+    계산 결과 : <span id="result"><!-- 여기에 결과 출력 --></span>
+
+    <script>
+        // 작성된 HTML 요소에 원하는 속성(id, class, onclick)을 작성하고
+        // 필요한 JS 코드(function)를 이용하여 계산기 만들기
+
+        // 전역 변수에 각 요소를 저장
+        // const num1=Number(document.getElementById("num1").value); // 0이 들어간다 조심!!
+        // 어떤 값이 써져있는지 상관없어! 객체를 가져와
+        const num1=document.getElementById("num1"); 
+        const num2=document.getElementById("num2");
+        const result=document.getElementById("result");
+
+        // ** 호출되는 시점에 불러오기!! **
+        function plus(){result.innerText= Number(num1.value)+Number(num2.value);}
+        function minus(){result.innerText= Number(num1.value)-Number(num2.value);}
+        function multi(){result.innerText= Number(num1.value)-Number(num2.value);}
+        function div(){result.innerText= Number(num1.value)-Number(num2.value);}
+        function mod(){result.innerText= Number(num1.value)-Number(num2.value);}
+    </script>
+</body>
+</html>
