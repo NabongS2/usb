@@ -25,6 +25,8 @@ function testFn(){
     console.log("if문 종료 후 (if)num5 : "+num5);
     console.log("if문 종료 후 (if)num6 : "+num6);
 }
+console.log("if문 종료 후 (if)num5 : "+num5);
+console.log("if문 종료 후 (if)num6 : "+num6);
 
 // 함수 호출
 testFn();
