@@ -9,7 +9,7 @@
                 <!-- 클릭 시 메인 페이지로 이동하는 로고 -->
                 <a href="/">
                     <!-- <img src="../images/nabong/cat.png" alt="main-cat-logo" id="homeLogo"> -->
-                    <img src="resources/images/love.png" alt="main-logo" id="homeLogo">
+                    <img src="/resources/images/love.png" alt="love-logo" id="homeLogo">
                 </a>
             </section>
             <section>
@@ -61,7 +61,7 @@
                         <input type="checkbox" id="headerMenuToggle">
 
                         <div class="header-menu">
-                            <a href="#">내정보</a>
+                            <a href="/myPage/info">내정보</a>
                             <a href="/member/logout">로그아웃</a>
                         </div>
                     </c:otherwise>
