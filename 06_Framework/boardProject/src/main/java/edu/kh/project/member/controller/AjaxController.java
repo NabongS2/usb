@@ -1,10 +1,16 @@
 package edu.kh.project.member.controller;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import edu.kh.project.member.model.dto.Member;
 import edu.kh.project.member.model.service.AjaxService;
 
 @Controller // 요청 / 응답 제어 + bean 등록
@@ -80,7 +86,34 @@ public class AjaxController {
      * 
      * Spring에서 사용하는 MessageConverter 종류
      * 1순위 : ByteArrayHttpMessageConverter (바이트 배열 자동 변환)
-    * 2순위 : StringHttpMessageConverter (Text 형식 자동 변환)
-    * 3순위 : MappingJackson2HttpMessageConverter (요청 데이터 -> DTO/Map , 응답 데이터 -> JSON)
+     * 2순위 : StringHttpMessageConverter (Text 형식 자동 변환)
+     * 3순위 : MappingJackson2HttpMessageConverter (요청 데이터 -> DTO/Map , 응답 데이터 -> JSON)
      * */
+	
+	// 이메일로 회원 정보 조회
+	@PostMapping(value="/selectMember", produces = "application/json; charset=UTF-8") 
+	// 자바스크립트에 요청한 주소		application/json 이 타입으로 돌아갈거야
+	@ResponseBody // Java 데이터 -> JSON, TEXT 변환 + 비동기 요청한 곳으로 응답
+	public Member selectMember(@RequestBody Map<String, Object> paramMap) {
+		// @RequestBody Map<String, Object> paramMap
+		// -> 요청된 HTTP Body에 담긴 모든 데이터를 Map으로 반환
+		
+		// body : JSON.stringify({"email":inputEmail.value})
+		String email = (String)paramMap.get("email"); // key 값 넣어주기
+		
+		return service.selectMember(email);
+	}
+	
+	// 이메일이 일부라도 일치하는 모든 회원 조회
+	@PostMapping(value="/selectMemberList", produces = "application/json; charset=UTF-8")
+	@ResponseBody
+	public List<Member> selectMemberList(@RequestBody String input){
+		
+		return service.selectMemberList(input);
+		
+	}
+	
+	
+	
+	
 }
