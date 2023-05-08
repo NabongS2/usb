@@ -49,6 +49,13 @@
 	-->
 	<context:component-scan base-package="edu.kh.project" />
 	
-	
+	<interceptors>
+		<interceptor>
+			<!-- 인터셉터가 동작할 url 패턴 -->
+			<mapping path="/**"/> <!-- /이하 모든 것 -->
+			<beans:bean id="boardTypeInterceptor" 
+					class="edu.kh.project.common.interceptor.BoardTypeInterceptor"/>
+		</interceptor>
+	</interceptors>
 	
 </beans:beans>
