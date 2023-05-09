@@ -13,6 +13,18 @@ public interface BoardService {
 	// 게시글 목록 조회
 	Map<String, Object> selectBoardList(int boardCode, int cp);
 
+	/** 게시글 상세 조회
+	 * @param map
+	 * @return Board
+	 */
+	Board selectBoard(Map<String, Object> map);
+
+	/** 좋아요
+	 * @param map
+	 * @return
+	 */
+	int boardLikeCheck(Map<String, Object> map);
+
 	
 
 }
