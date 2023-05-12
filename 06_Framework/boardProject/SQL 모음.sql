@@ -648,4 +648,67 @@ AND BOARD_NO =1500
 
 SELECT * FROM BOARD_LIKE;
 
+SELECT * FROM BOARD
+ORDER BY 1 DESC ;
+
 COMMIT;
+
+-- 한 번에 여러 개 INSERT 하기
+
+-- INSERT ALL : 여러 테이블에 동시에 INSERT 하는 구문 -> 시퀀스 생성 구문을 작성하지 못함(탈락)
+
+-- INSERT + SUB QUERY
+
+INSERT INTO BOARD_IMG
+SELECT SEQ_IMG_NO.NEXTVAL, A.*
+FROM (SELECT '웹 접근 경로' IMG_PATH, '변경명' IMG_RENAME, '원본명' IMG_ORIGINAL,
+		0 IMG_ORDER, 1500 BOARD_NO
+	  FROM DUAL
+	  UNION ALL
+	  SELECT '웹 접근 경로' IMG_PATH, '변경명' IMG_RENAME, '원본명' IMG_ORIGINAL,
+	  		1 IMG_ORDER, 1500 BOARD_NO
+	  FROM DUAL
+	  UNION ALL
+	  SELECT '웹 접근 경로' IMG_PATH, '변경명' IMG_RENAME, '원본명' IMG_ORIGINAL,
+	  		2 IMG_ORDER, 1500 BOARD_NO
+	  FROM DUAL
+	  )A
+;
+SELECT * FROM BOARD_IMG ORDER BY IMG_NO DESC;
+
+ROLLBACK;
+
+
+-- 게시글 수정
+UPDATE "BOARD" SET
+BOARD_TITLE = #{boardTitle},
+BOARD_CONTENT = #{boardContent},
+B_UPDATE_DATE = SYSDATE
+WHERE BOARD_CODE = #{boardCode}
+AND BOARD_NO = #{boardNo}
+;
+
+-- 이미지 삭제
+DELETE FROM BOARD_IMG
+WHERE BOARD_NO = #{boardNo}
+AND IMG_ORDER IN(${deleteList})
+;
+
+-- 이미지 수정
+UPDATE BOARD_IMG SET
+IMG_PATH = #{imagePath},
+IMG_ORIGINAL = #{imageOriginal},
+IMG_RENAME = #{imageReName}
+WHERE BOARD_NO = #{boardNo}
+AND IMG_ORDER = #{imageOrder}
+;
+
+COMMIT;
+
+-- 게시글 삭제
+UPDATE BOARD SET
+BOARD_DEL_FL = 'Y'
+WHERE BOARD_CODE = #{boardCode}
+AND BOARD_NO = #{boardNo}
+AND BOARD_DEL_FL = 'N'
+;

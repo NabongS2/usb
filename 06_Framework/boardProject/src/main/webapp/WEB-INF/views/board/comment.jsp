@@ -19,12 +19,12 @@
                         </c:if>
 
                         <c:if test="${not empty comment.profileImage}" >
-                            <%-- 없을 경우 프로필 이미지 --%>
+                            <%-- 있을 경우 프로필 이미지 --%>
                             <img src="${comment.profileImage}">
                         </c:if>
 
                         <!-- 닉네임 -->
-                        <span>닉네임</span>
+                        <span>${comment.memberNickname}</span>
                         
                         <!-- 작성일 -->
                         <span class="comment-date">${comment.commentCreateDate}</span>
@@ -47,11 +47,19 @@
                 </li>
             </c:forEach>
 
+
+
+
+
+
+
+
+
+
             <!-- 자식 댓글 -->
             <li class="comment-row child-comment">
                 <p class="comment-writer">
 
-                    
                     <!-- 프로필 이미지 -->
                     <img src="/resources/images/user.png">
 

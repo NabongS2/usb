@@ -6,6 +6,7 @@
 <c:set var="boardList" value="${map.boardList}"/>
 
 <c:set var="boardName" value="${boardTypeList[boardCode-1].BOARD_NAME}"/>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -42,9 +43,11 @@
                     </thead>
 
                     <tbody>
+
                         <c:choose>
                             <c:when test="${empty boardList}">
                                 <%-- 조회된 게시글 목록이 비어있거나 null인 경우 --%>
+
                                 <!-- 게시글 목록 조회 결과가 비어있다면 -->
                                 <tr>
                                     <th colspan="6">게시글이 존재하지 않습니다.</th>
@@ -57,11 +60,12 @@
                                     <tr>
                                         <td>${board.boardNo}</td>
                                         <td> 
-                                            <%-- 썸네일 있을 때 --%>
+                                            <%-- 썸네일이 있을 경우 --%>
                                             <c:if test="${not empty board.thumbnail}" >
                                                 <img class="list-thumbnail" src="${board.thumbnail}">
+                                                <%-- https://via.placeholder.com/50x30 --%>
                                             </c:if>
-                                            <%-- ${boardCode} : @PathVariable로 request scope에 추가된 값 --%>
+                                            <%-- ${boardCode} : @Pathvariable로 request scope에 추가된 값 --%>
                                             <a href="/board/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}">${board.boardTitle}</a>   
                                             [${board.commentCount}]                        
                                         </td>
@@ -82,7 +86,9 @@
             <div class="btn-area">
 
 				<!-- 로그인 상태일 경우 글쓰기 버튼 노출 -->
-                <button id="insertBtn">글쓰기</button>                     
+                <c:if test="${not empty loginMember}" >
+                    <button id="insertBtn">글쓰기</button>                     
+                </c:if>
 
             </div>
 
@@ -99,7 +105,6 @@
                     <!-- 이전 목록 마지막 번호로 이동 -->
                     <li><a href="/board/${boardCode}?cp=${pagination.prevPage}">&lt;</a></li>
 
-					
                     <!-- 특정 페이지로 이동 -->
                     <c:forEach var="i" begin ="${pagination.startPage}"
                                     end="${pagination.endPage}" step="1">
@@ -155,6 +160,6 @@
 
 
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
-
+    <script src="/resources/js/board/boardList.js"></script>
 </body>
 </html>
