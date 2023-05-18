@@ -92,8 +92,7 @@ btn2.addEventListener("click",()=>{
 
     .then(member => { // 파싱한 데이터를 이용해서 비동기 처리 후 동작
         console.log(member);
-
-        // ul(#result2)의 내부 내용 모두 없애기
+    // ul(#result2)의 내부 내용 모두 없애기
         result2.innerHTML="";
 
         const li1 = document.createElement("li");
@@ -170,3 +169,36 @@ btn3.addEventListener("click",()=>{
     })
 
 })
+
+// ------------------------------------------------------------
+// 웹소켓 테스트
+// 1. SockJS 라이브러리 추가
+
+// 2. SockJs를 이용해서 클라이언트용 웹소켓 객체 생성
+let testSock = new SockJS("/testSock");
+
+function sendMessage(name, str){
+    // 매개 변수를 JS 객체에 저장
+    let obj = {}; // 비어있는 객체
+
+    // 객체에 일치하는 key가 없다면 자동으로 추가 (지울 때 delete)
+    obj.name= name;
+    obj.str= str;
+
+    // console.log(obj);
+
+    testSock.send(JSON.stringify(obj)); // 웹소켓 연결된 곳으로 메시지를 보냄
+                  // JS 객체 -> JSON
+
+
+}
+
+// 웹소켓 객체(testSock)가 서버로 부터 전달 받은 메시지가 있을 경우
+// onmessage : 메세지 감지
+testSock.onmessage = e => {
+    // e : 이벤트 객체
+    // e.data : 전달 받은 메세지(JSON)
+    let obj = JSON.parse(e.data); // JSON -> JS 객체
+
+    console.log(`보낸 사람 : ${obj.name} / ${obj.str}`);
+}

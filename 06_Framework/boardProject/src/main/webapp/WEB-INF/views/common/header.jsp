@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="/resources/css/main-style.css">
 <!-- font awesome 라이브러리 추가 + key 등록 -->
 <script src="https://kit.fontawesome.com/50eac33ca9.js" crossorigin="anonymous"></script>
-
+<script src="/resources/js/header.js"></script>
 <header>
             <section>
                 <!-- 클릭 시 메인 페이지로 이동하는 로고 -->
@@ -31,17 +31,22 @@
                                 autocomplete="off" : 브라우저 제공 자동완성 off
                             -->
                             <input type="search" name="query" id="query"
-                            placeholder="검색어를 입력해주세요." autocomplete="off">
+                            placeholder="검색어를 입력해주세요." 
+                            autocomplete="off" value="${param.query}">
 
                             <!-- 검색 버튼 -->
+                            <input type="hidden" name="key" value="t">
                             <!-- button type="submit"이 기본값 -->
                             <button id="searchBtn" class="fa-solid fa-magnifying-glass"></button>
 
                         </fieldset>
 
                     </form>
+
+                    <ul id="searchResult" class="close"></ul>
                 </article>
             </section>
+
             <section></section>
 
             <%-- 우측 상단 드롭다운 메뉴 --%>
@@ -87,5 +92,10 @@
                         <a href="/board/${boardType.BOARD_CODE}">${boardType.BOARD_NAME}</a>
                     </li>
                 </c:forEach>
+
+                <c:if test="${not empty loginMember}" >
+                    <li><a href="/chatting">채팅</a></li>
+                </c:if>
+
             </ul>
         </nav>

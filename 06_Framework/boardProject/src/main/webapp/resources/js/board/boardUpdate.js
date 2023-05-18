@@ -92,7 +92,7 @@ boardUpdateFrm.addEventListener("submit",e=>{
 
     // JS 배열은 string에 대입되거나 출력될 때 요소, 요소, 요소 형태의 문자열은 반환한다.
 
-    document.querySelector("[name='deleteList]").value
+    document.querySelector("[name='deleteList']").value
         = Array.from(deleteSet);
         // = deleteSet;
 
