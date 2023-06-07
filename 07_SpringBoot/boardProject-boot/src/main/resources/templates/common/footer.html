@@ -19,5 +19,7 @@
     /* Natural Template */
     const message = /*[[${message}]]*/  "전달 받은 message";
     // 타임리프 해석    값(자료형이 알아서 해석)     사라짐(설명)
-    alert(message);
+    if(message != null){
+        alert(message);
+    }
 </script>
