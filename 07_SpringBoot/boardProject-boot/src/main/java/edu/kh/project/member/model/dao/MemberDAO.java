@@ -29,4 +29,6 @@ public class MemberDAO {
 		return memberMapper.signUp(inputMember);
 	}
 	
+	
+	
 }
