@@ -41,7 +41,7 @@ dependencies {
     // https://mvnrepository.com/artifact/com.oracle.database.security/osdt_cert
 	implementation group: 'com.oracle.database.security', name: 'osdt_cert', version: '21.10.0.0'
    
-   // https://mvnrepository.com/artifact/com.oracle.database.security/osdt_core
+    // https://mvnrepository.com/artifact/com.oracle.database.security/osdt_core
 	implementation group: 'com.oracle.database.security', name: 'osdt_core', version: '21.10.0.0'
    
    
