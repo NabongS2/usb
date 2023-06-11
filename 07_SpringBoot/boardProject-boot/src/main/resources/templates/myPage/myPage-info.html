@@ -98,6 +98,28 @@
             }).open();
         }
     </script>
+
+    <script th:inline="javascript">
+        // th:inline="javascript"
+        // - 타임리프를 script에서 사용 가능
+        // - 타임리프에서 출력되는 값을 JS에 맞는 자료형으로 변경
+
+        // Natural Template
+        // 1) JS 문법 에러 발생
+        // 2) HTML파일만 단독으로 열었을 때 발생하는 에러 방지
+        const loginMember = /*[[${session.loginMember}]]*/ "로그인한 회원정보";
+
+        if(loginMember.memberAddress != null){
+            const arr = loginMember.memberAddress.split("^^^");
+
+            document.querySelectorAll("input[name='memberAddress']").forEach( (item, i) => {
+                item.value = arr[i];
+            } );
+        }
+
+    </script>
+
+
     <script th:src="@{/js/myPage/myPage.js}"></script>
 </body>
 </html>

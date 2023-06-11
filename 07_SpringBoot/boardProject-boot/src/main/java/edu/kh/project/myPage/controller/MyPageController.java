@@ -199,15 +199,9 @@ public class MyPageController {
 			, RedirectAttributes ra // 리다이렉트 시 메세지 전달
 			, HttpSession session // 세션 객체
 			) throws IllegalStateException, IOException {
-		
-		// 웹 접근 경로
-		String webPath = "/resources/images/member/";
-		
-		// 실제로 이미지 파일이 저장 되어야하는 서버 컴퓨터 경로
-		String filePath = session.getServletContext().getRealPath(webPath);
-		
+
 		// 프로필 이미지 수정 서비스 호출
-		int result = service.updateProfile(profileImage, webPath, filePath, loginMember);
+		int result = service.updateProfile(profileImage, loginMember);
 		
 		String message = null;
 		if(result>0) message = "프로필 이미지가 변경 되었습니다.";

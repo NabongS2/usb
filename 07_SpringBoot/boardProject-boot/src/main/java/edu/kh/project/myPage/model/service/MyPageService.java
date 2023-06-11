@@ -36,6 +36,6 @@ public interface MyPageService {
 	 * @param loginMember
 	 * @return
 	 */
-	public int updateProfile(MultipartFile profileImage, String webPath, String filePath, Member loginMember) throws IllegalStateException, IOException;
+	public int updateProfile(MultipartFile profileImage, Member loginMember) throws IllegalStateException, IOException;
    
 }

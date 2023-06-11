@@ -1,9 +1,10 @@
 package edu.kh.project.myPage.model.service;
 import java.io.File;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,13 +12,20 @@ import org.springframework.web.multipart.MultipartFile;
 
 import edu.kh.project.common.utility.Util;
 import edu.kh.project.member.model.dto.Member;
-import edu.kh.project.myPage.model.dao.MyPageDAO;
+import edu.kh.project.myPage.model.dao.MyPageMapper;
 
 @Service // 비즈니스 로직 처리 클래스 + Bean 등록 (IOC)
+@PropertySource("classpath:config.properties")
 public class MyPageServiceImpl implements MyPageService{
    
-   @Autowired  // MyPageDAO 의존성 주입(DI)
-   private MyPageDAO dao;
+	@Value("${my.member.webpath}")
+	private String webPath;
+	
+	@Value("${my.member.location}")
+	private String filePath;
+	
+   @Autowired  // MyPagemapper 의존성 주입(DI)
+   private MyPageMapper mapper;
    
    @Autowired // BCryptPasswordEncoder 의존성 주입(DI)
    private BCryptPasswordEncoder bcrypt;
@@ -27,7 +35,7 @@ public class MyPageServiceImpl implements MyPageService{
    @Override
    public int updateInfo(Member updateMember) {
    
-      return dao.updateInfo(updateMember);
+      return mapper.updateInfo(updateMember);
    }
    
    
@@ -38,13 +46,17 @@ public class MyPageServiceImpl implements MyPageService{
 	public int changePw(String currentPw, String newPw, int memberNo) {
 		// 1. 현재 비밀번호 == DB에 저장된 비밀번호
 		// 1) 회원 번호가 일치하는 MEMBER 테이블 행의 MEMBER_PW 조회
-		String encPw = dao.seleteEncPw(memberNo);
+		String encPw = mapper.selectEncPw(memberNo);
 		
 		
 		// 2) bcrypt.matches(평문, 암호문) -> 같으면 true -> 이 때 비번 수정
 		if(bcrypt.matches(currentPw, encPw)) {
-			// 2. 비밀번호 변경(UPDATE DAO 호출) -> 결과 반환	
-			return dao.changePw(bcrypt.encode(newPw), memberNo);
+			// 2. 비밀번호 변경(UPDATE mapper 호출) -> 결과 반환	
+			Member member = new Member();
+			member.setMemberNo(memberNo);
+			member.setMemberPw(bcrypt.encode(newPw));
+			
+			return mapper.changePw(member);
 		}
 		// 3) 비밀번호가 일치하지 않으면 0 반환
 		return 0;
@@ -58,19 +70,19 @@ public class MyPageServiceImpl implements MyPageService{
 	public int secession(String memberPw, int memberNo) {
    		
    		// 1. 회원 번호가 일치하는 회원의 비밀번호 조회
-   		String encPw = dao.seleteEncPw(memberNo);
+   		String encPw = mapper.selectEncPw(memberNo);
    		
 		// 2. 비밀번호가 일치면 MEMBER_DEL_FL -> 'Y'로 바꾸고 1 반환
 		// - 비밀번호가 일치하지 않으면 -> 0 반환
    		if(bcrypt.matches(memberPw, encPw)) {
-   			return dao.secession(memberNo);
+   			return mapper.secession(memberNo);
    		}
 		return 0;
 	}
 
    	// 프로필 이미지 수정 서비스 호출
 	@Override
-	public int updateProfile(MultipartFile profileImage, String webPath, String filePath, Member loginMember) throws IllegalStateException, IOException {
+	public int updateProfile(MultipartFile profileImage, Member loginMember) throws IllegalStateException, IOException {
 		
 		// 프로필 이미지 변경 실패 대비
 		String temp = loginMember.getProfileImage(); // 이전 이미지 저장
@@ -92,8 +104,8 @@ public class MyPageServiceImpl implements MyPageService{
 			// 세션 이미지를 null로 변경해서 삭제
 		}
 		
-		// 프로필 이미지 수정 DAO 메서드 호출
-		int result = dao.updateProfile(loginMember);
+		// 프로필 이미지 수정 mapper 메서드 호출
+		int result = mapper.updateProfile(loginMember);
 		
 		if(result>0) { // 성공
 			// 새 이미지가 업로드 된 경우
