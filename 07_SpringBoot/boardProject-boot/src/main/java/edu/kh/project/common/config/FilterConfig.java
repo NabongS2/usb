@@ -4,12 +4,16 @@ import java.util.Arrays;
 
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
+import edu.kh.project.common.filter.BoardFilter;
 import edu.kh.project.common.filter.LoginFilter;
 
+@Configuration
 public class FilterConfig {
+	
    @Bean
-   public FilterRegistrationBean<LoginFilter> loginFilter(){
+   public FilterRegistrationBean<LoginFilter> loginFilter(){ // 로그인 필터
       
       FilterRegistrationBean<LoginFilter> resiRegistrationBean = new FilterRegistrationBean<LoginFilter>();
       
@@ -21,4 +25,21 @@ public class FilterConfig {
       resiRegistrationBean.setOrder(1); // 여러 필터가 있을 때 순서
       return resiRegistrationBean;
    }
+   
+   @Bean
+   public FilterRegistrationBean<BoardFilter> boardFilter(){ // 게시판 필터
+      
+      FilterRegistrationBean<BoardFilter> resiRegistrationBean = new FilterRegistrationBean<BoardFilter>();
+      
+      resiRegistrationBean.setFilter(new BoardFilter());
+      
+      String[] url = {"/board/*", "/board2/*"};
+      resiRegistrationBean.setUrlPatterns(Arrays.asList(url)); // url 패턴 여러 개 지정
+      resiRegistrationBean.setName("boardFilter"); // 이름
+      resiRegistrationBean.setOrder(2); // 여러 필터가 있을 때 순서
+      return resiRegistrationBean;
+   }
+   
+   
+   
 }
