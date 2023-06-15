@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.kh.project.board.model.dto.Board;
+import edu.kh.project.board.model.dto.BoardImage;
 import edu.kh.project.board.model.service.BoardService;
 import edu.kh.project.member.model.dto.Member;
 import jakarta.servlet.http.Cookie;
@@ -234,8 +235,24 @@ public class BoardController {
 			}
 			
 			path ="board/boardDetail"; // forward 할 jsp 경로
-			
 			model.addAttribute("board",board);
+			
+			// 게시글에 이미지가 있을 경우
+			if(board.getImageList().size()>0) {
+				
+				BoardImage tumbnail = null;
+				// 0번 인덱스의 이미지의 순서가 0인 경우 == 썸네일
+				if(board.getImageList().get(0).getImageOrder()==0) {
+					tumbnail = board.getImageList().get(0);
+				}
+				
+				model.addAttribute("tumbnail",tumbnail); // 썸네일 없으면 null
+				
+				// 썸네일이 있으면 start = 1 / 없으면 start = 0
+				model.addAttribute("start", tumbnail!= null ? 1:0);
+				
+			}
+			
 		}
 		else { // 조회 결과가 없을 경우
 			path ="redirect:/board/" + boardCode;

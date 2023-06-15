@@ -55,12 +55,12 @@
                                     <img th:if="${board.thumbnail}" class="list-thumbnail" th:src="${board.thumbnail}">
 
                                     <!-- 검색 X -->
-                                    <a th:unless="#{param.query}"
+                                    <a th:unless="${param.query}"
                                     th:href="@{/board/{boardCode}/{boardNo}(boardCode=${boardCode}, boardNo=${board.boardNo}, cp=${pagination.currentPage})}" 
                                     th:text="${board.boardTitle}">게시글 제목</a>
 
                                     <!-- 검색 O -->
-                                    <a th:if="#{param.query}"
+                                    <a th:if="${param.query}"
                                     th:href="@{/board/{boardCode}/{boardNo}(boardCode=${boardCode}, boardNo=${board.boardNo}, cp=${pagination.currentPage}, key=${param.key}, query=${param.query})}" 
                                     th:text="${board.boardTitle}">게시글 제목</a>
 
