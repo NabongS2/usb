@@ -240,16 +240,16 @@ public class BoardController {
 			// 게시글에 이미지가 있을 경우
 			if(board.getImageList().size()>0) {
 				
-				BoardImage tumbnail = null;
+				BoardImage thumbnail = null;
 				// 0번 인덱스의 이미지의 순서가 0인 경우 == 썸네일
 				if(board.getImageList().get(0).getImageOrder()==0) {
-					tumbnail = board.getImageList().get(0);
+					thumbnail = board.getImageList().get(0);
 				}
 				
-				model.addAttribute("tumbnail",tumbnail); // 썸네일 없으면 null
+				model.addAttribute("thumbnail",thumbnail); // 썸네일 없으면 null
 				
 				// 썸네일이 있으면 start = 1 / 없으면 start = 0
-				model.addAttribute("start", tumbnail!= null ? 1:0);
+				model.addAttribute("start", thumbnail!= null ? 1:0);
 				
 			}
 			
