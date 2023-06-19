@@ -132,7 +132,7 @@
 
         const boardNo = /*[[${board.boardNo}]]*/ "boardNo";
 
-        const loginMemberNo = /*[[${session.loginMember?.memberNo}]]*/ "로그인한 회원";
+        let loginMemberNo = /*[[${session.loginMember?.memberNo}]]*/ "로그인한 회원";
 
         if(loginMemberNo == null){
             loginMemberNo = "";
