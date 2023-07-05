@@ -13,6 +13,8 @@ import State3 from './components/R04_state3';
 
 import TodoList1 from './components/R05_todolist1';
 
+import ContextApi from './components/R06_context_api';
+
 function App() {
   // jsx 표기법 : js + xml
   // react의 컴포넌트는 딱 하나의 요소만을 반환할 수 있다
@@ -21,8 +23,8 @@ function App() {
     /* fragment (<> </>) : 반환되는 요소를 감쌀 때 사용, 해석x */
     <>
       {/* jsx 주석 */}
-      <h1>Hello React!!</h1>
-      <div>와 리액트다</div>
+      {/* <h1>Hello React!!</h1> */}
+      {/* <div>와 리액트다</div> */}
 
       {/* <Ex1 /> */}
 
@@ -43,7 +45,10 @@ function App() {
       {/* <State3/> */}
 
       {/* R05_todolist1 */}
-      <TodoList1 />
+      {/* <TodoList1 /> */}
+
+      {/* R06_context_api */}
+      <ContextApi/>
     </>
   );
 }
