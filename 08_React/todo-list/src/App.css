@@ -1,10 +1,66 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: 'omyu_pretty';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+*{
+  font-family: 'omyu_pretty';
+  box-sizing: border-box;
+  font-size: 1.1rem;
+}
+button {
+  background-color: #9AC5F4;
+  border: none;
+  color: #fff;
+  padding: 5px 20px;
+  border-radius: 30px;
+  font-weight: bold;
+  margin: 10px;
+  outline: #9AC5F4;
+  font-size: 1rem;
+}
+button:hover{
+  background-color: #5baaff;
+}
+input{
+  border-radius: 5px;
+  border: 1px solid #9AC5F4;
+  margin: 4px;
+  outline: #9AC5F4;
+  padding: 2px;
+}
+hr{
+  /* color: #9AC5F4; */
+  border: 1px solid #5baaff;
+  border-style: dashed;
+}
+.todo-container hr{
+  /* color: #9AC5F4; */
+  border: 1px solid #c074ff;
+  border-style: dashed;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1{
+  display: inline-block;
+  width: auto;
+  font-size: 1.6rem;
+}
+
+.mark {background-color:pink;}
+
+.txt-bg {background-color:skyblue;}
+.txt-bg2 {background-color:skyblue;background-image:linear-gradient(to left, #99DBF5 0%, #9AC5F4 80%);}
+
+.txt-bg3 {background:linear-gradient(180deg,rgba(255,255,255,0) 50%, gold 50%);
+}
+
+ul,li {
+  list-style: none;	
+}
+li>div::before {
+  content: '💜';
+  display: inline;
 }
 
 
@@ -12,23 +68,31 @@
   padding: 15px;
 }
 
+#root>button {
+  background-color: #5baaff;
+}
+#root>button:hover {
+  background-color: #9AC5F4;
+}
+
 .signup-wrapper{
   position: relative;
 }
 
 .signup-container{
-  width: 300px;
-  padding: 10px;
+  width: 360px;
+  padding: 30px;
   position: absolute;
 
   background-color: white;
-  border: 3px solid #ccc;
+  border: 3px solid #9AC5F4;
 }
 
 .signup-container > label{
   display: flex;
   justify-content: space-between;
   padding: 5px 0;
+  align-items: center;
 }
 
 .signup-container > label > input{
@@ -36,10 +100,58 @@
 }
 
 .signup-container button{
-  width: 100%;
+  width: 90%;
 }
 
 .id-error{
   color: #f00;
   font-weight: bold;
 }
+
+.todo-container{
+  padding: 20px;
+  min-width: 500px;
+  width: auto;
+}
+
+.todo-container li{
+  margin-bottom: 10px;
+}
+
+.todo-container li > div{
+  display: flex;
+  justify-content: space-between;
+}
+
+.todo-container li > div > span:last-child{
+  display: flex;
+}
+
+.todo-container li > div button{
+  margin: 0 5px;
+}
+
+.todo-compleate{
+  text-decoration: line-through;
+}
+
+.todo-container input{
+  border: 1px solid #c074ff;
+}
+.todo-container button{
+  background-color: #c074ff;
+}
+
+.todo-container button:hover{
+  background-color: #e0bbff;
+}
+
+
+.todo-container span button{
+  background-color: #e0bbff;
+}
+
+.todo-container span button:hover{
+  background-color: #c074ff;
+}
+
