@@ -1,0 +1,24 @@
+#root{text-align: center;}
+
+/* button{
+  border-radius: 5px;
+  width: 30px; height: 30px;
+  margin: 10px;
+}
+.cyan{
+  background-color: cyan;
+}
+.magenta{
+  background-color: magenta;
+}
+div{
+  width: 200px;
+  display: flex;
+} */
+
+.text-div{
+  border: 1px solid #000;
+  width: 80%;
+  margin: auto;
+  margin-top: 20px;
+}
